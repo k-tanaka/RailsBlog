@@ -1,0 +1,8 @@
+<aside class="g1 widget">
+    <h6>最近の記事</h6>
+    <ul>
+<% @recent_posts.each do |post| %>
+        <li><%= link_to post.title, :controller => 'frontend', :action => 'show', :id => post.id %></li>
+<% end %>
+    </ul>
+</aside>

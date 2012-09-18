@@ -1,0 +1,6 @@
+RailsBaseURI /blog
+RailsEnv     development
+
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>

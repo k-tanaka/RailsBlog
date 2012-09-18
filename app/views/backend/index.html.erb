@@ -1,0 +1,89 @@
+<article class="module width_full">
+    <header><h3>記事一覧</h3></header>
+    <table class="tablesorter" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>コメント</th>
+                <th>更新日時</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+<% @posts.each do |post| %>
+            <tr id="<%= dom_id(post) %>">
+                <td><%= post.id %></td>
+                <td><%= truncate(post.title, :length => 32) %></td>
+                <td><a href="<%= url_for(:controller => 'comments', :action => 'index', :post_id => post.id) %>"><%= post.comments.count %>件</a></td>
+                <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+                <td class="actions">
+                    <%= link_to '記事を確認', { :controller => 'frontend', :action => 'show', :id => post.id }, { :class => 'icn_jump', :target => '_blank' } %>
+                    <%= link_to '変更', edit_post_path(post), :class => 'icn_edit', :alt => '変更' %>
+                    <%= link_to '削除', post, method: :delete, data: { confirm: '正気ですか！？', :remote => true }, :class => 'icn_trash', :alt => '削除' %>
+                </td>
+            </tr>
+<% end %>
+        </tbody>
+    </table>
+</article>
+
+<article class="module width_half">
+    <header>
+        <h3 class="tabs_involved">タグ / カテゴリ</h3>
+        <ul class="tabs">
+            <li><a href="#tags">タグ</a></li>
+            <li><a href="#categories">カテゴリ</a></li>
+        </ul>
+    </header>
+    <div class="tab_container">
+        <div id="tags" class="tab_content">
+            <table class="tablesorter" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>タグ</th>
+                        <th>記事</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+<% @tags.each do |tag| %>
+                    <tr>
+                        <td><%= tag.name %></td>
+                        <td><%= link_to "#{tag.posts.count}件", :controller => 'posts', :action => 'index', :tag => tag.id %></td>
+                        <td>
+                            <%= link_to '　　', edit_tag_path(tag), :class => 'icn_edit', :alt => '変更' %>&nbsp;&nbsp;
+                            <%= link_to '　　', tag, method: :delete, data: { confirm: '正気ですか!?' }, :class => 'icn_trash' %>
+                        </td>
+                    </tr>
+<% end %>
+                </tbody>
+            </table>
+        </div>
+        <div id="categories" class="tab_content">
+            <table class="tablesorter" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>カテゴリ</th>
+                        <th>記事</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+<!--
+<% @tags.each do |tag| %>
+                    <tr>
+                        <td><%= tag.name %></td>
+                        <td><%= link_to "#{tag.posts.count}件", :controller => 'posts', :action => 'index', :tag => tag.id %></td>
+                        <td>
+                            <%= link_to '　　', edit_tag_path(tag), :class => 'icn_edit', :alt => '変更' %>&nbsp;&nbsp;
+                            <%= link_to '　　', tag, method: :delete, data: { confirm: '正気ですか!?' }, :class => 'icn_trash' %>
+                        </td>
+                    </tr>
+<% end %>
+-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</article>

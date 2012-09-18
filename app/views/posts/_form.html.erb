@@ -1,0 +1,48 @@
+<%= form_for(@post) do |f| %>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+    <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="module_content">
+    <fieldset>
+        <%= f.label :name, '投稿者' %>
+        <%= f.text_field :name, :class => 'admin_form_name' %>
+    </fieldset>
+    <fieldset>
+        <%= f.label :title, '記事タイトル' %>
+        <%= f.text_field :title, :class => 'admin_form_title' %>
+    </fieldset>
+    <fieldset>
+        <%= f.label :content, '記事内容' %>
+        <%= f.text_area :content, :class => 'admin_form_content' %>
+    </fieldset>
+    <fieldset>
+        <label>タグ</label>
+        <p class="tags">
+            <%= select :page, :name, @tags.map{|t| [t.name, t.id]} %>&nbsp;
+<% @post.tags.each do |tag| %>
+        <span><%= tag.name %> <a href=""><img src="<%= image_path('icn_xmark.gif') %>"></a></span>
+<% end %>
+        </p>
+    </fieldset>
+</div>
+
+<footer>
+    <div class="submit_link">
+<% if @post.id %>
+        <%= f.submit :更新, :class => 'form_submit', :confirm => '更新してよいですか？' %>
+<% else %>
+        <%= f.submit :投稿, :class => 'form_submit', :confirm => '投稿してよいですか？' %>
+<% end %>
+        <input type="button" class="cancel" onClick="history.back();" value="キャンセル" />
+    </div>
+</footer>
+<% end %>

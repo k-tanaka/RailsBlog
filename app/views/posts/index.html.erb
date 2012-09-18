@@ -1,0 +1,29 @@
+<article class="module width_full">
+    <header><h3>記事一覧</h3></header>
+    <table class="tablesorter" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>コメント</th>
+                <th>更新日時</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+<% @posts.each do |post| %>
+            <tr id="<%= dom_id(post) %>">
+                <td><%= post.id %></td>
+                <td><%= truncate(post.title, :length => 32) %></td>
+                <td><a href="<%= url_for(:controller => 'comments', :action => 'index', :post_id => post.id) %>"><%= post.comments.count %>件</a></td>
+                <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+                <td class="actions">
+                    <%= link_to '　　', { :controller => 'frontend', :action => 'show', :id => post.id }, { :class => 'icn_jump', :target => '_blank' } %>&nbsp;&nbsp;
+                    <%= link_to '　　', edit_post_path(post), :class => 'icn_edit', :alt => '変更' %>&nbsp;&nbsp;
+                    <%= link_to '　　', post, method: :delete, data: { confirm: '正気ですか！？', :remote => true }, :class => 'icn_trash', :alt => '削除' %>
+                </td>
+            </tr>
+<% end %>
+        </tbody>
+    </table>
+</article>

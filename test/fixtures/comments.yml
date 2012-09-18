@@ -1,0 +1,64 @@
+comment1:
+  commenter: fuga
+  body: コメントのテスト投稿01
+  post: post1
+
+comment2:
+  commenter: fuga
+  body: コメントのテスト投稿02
+  post: post1
+
+comment3:
+  commenter: fuga
+  body: コメントのテスト投稿0
+  post: post1
+
+comment4:
+  commenter: fuga
+  body: コメントのテスト投稿04
+  post: post3
+
+comment5:
+  commenter: fuga
+  body: コメントのテスト投稿05
+  post: post3
+
+comment6:
+  commenter: fuga
+  body: コメントのテスト投稿06
+  post: post3
+
+comment7:
+  commenter: fuga
+  body: コメントのテスト投稿07
+  post: post4
+
+comment8:
+  commenter: fuga
+  body: コメントのテスト投稿08
+  post: post5
+
+comment9:
+  commenter: fuga
+  body: コメントのテスト投稿09
+  post: post6
+
+comment10:
+  commenter: fuga
+  body: コメントのテスト投稿10
+  post: post7
+
+comment11:
+  commenter: fuga
+  body: コメントのテスト投稿11
+  post: post8
+
+comment12:
+  commenter: fuga
+  body: コメントのテスト投稿12
+  post: post9
+
+comment13:
+  commenter: fuga
+  body: コメントのテスト投稿13
+  post: post10

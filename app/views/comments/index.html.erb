@@ -1,0 +1,23 @@
+<article class="module width_3_quarter">
+    <header><h3>『<%= truncate(@post.title, :length => 24) %>』のコメント一覧</h3></header>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+<% if @comments.count > 0 %>
+    <table class="tablesorter" cellspacing="0">
+        <thead>
+            <tr>
+                <th class="commenter">ユーザ名</th>
+                <th class="comment">内容</th>
+                <th class="datetime">コメント日時</th>
+                <th class="operation"></th>
+            </tr>
+        </thead>
+        <tbody>
+<%= render :partial => 'comment', :collection => @comments %>
+        </tbody>
+    </table>
+<% else %>
+    <p>コメントがありません</p>
+<% end %>
+</article>

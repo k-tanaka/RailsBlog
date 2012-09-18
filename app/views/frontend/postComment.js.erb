@@ -1,0 +1,4 @@
+$('#comments').prepend('<%= escape_javascript(render :partial => 'comment', :object => @comment) %>');
+$('#comments > div').first().hide();
+$('#comments > div').first().effect('blind', { direction: 'vertical', mode: 'show' }, 1200);
+$('#new_comment')[0].reset();

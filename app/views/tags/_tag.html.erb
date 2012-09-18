@@ -1,0 +1,10 @@
+<tr id="<%= dom_id(tag) %>">
+    <td><%= tag.id %></td>
+    <td id="tag_name_<%= tag.id %>"><%= tag.name %></td>
+    <td><%= link_to "#{tag.posts.count}件", :controller => 'posts', :action => 'index', :tag => tag.id %></td>
+    <td><%= tag.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    <td class="actions">
+        <%= link_to '変更', edit_tag_path(tag), :class => 'icn_edit', :remote => true %>
+        <%= link_to '削除', tag, method: :delete, data: { confirm: '正気ですか！？' }, :class => 'icn_trash', :remote => true %>
+    </td>
+</tr>

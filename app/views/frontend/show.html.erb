@@ -1,0 +1,35 @@
+<div class="g2">
+    <div id="article_header"></div>
+    <div id="article">
+        <h5 class="article_title"><%= @post.title %></h5>
+        <p class="article_footer">
+            <span class="author"><%= @post.name %></span> 
+            <span class="article_date"><%= @post.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+        </p>
+        <%= simple_format(@post.content) %>
+        <p class="tags">
+            タグ : 
+<% @post.tags.each do |tag| %>
+            <span class="tag"><%= link_to tag.name, :controller => 'frontend', :action => 'index', 'tag' => tag.id %></span>
+<% end %>
+        </p>
+    </div>
+    <div id="article_footer"> </div>
+
+    <div class="contents_header"></div>
+    <div class="contents">
+        <h6>コメント<a name="comments"></a></h6>
+        <%= form_for(@comment, :url => { :controller => 'frontend', :action => 'postComment' }, :remote => true) do |f| %>
+            <%= f.label :commenter, '名前(必須)' %> <%= f.text_field :commenter, :class => 'comment_form_name' %><br />
+            <%= f.text_area :body, :size => '10', :maxlength => '128', :class => 'comment_form_body' %>
+            <%= hidden_field_tag 'post_id', @post.id  %>
+            <%= f.submit :コメントを送信, :class => 'form_submit', :confirm => 'コメントを投稿しますか?' %>
+        <% end %>
+        <div id="comments">
+<%= render :partial => 'comment', :collection => @post.comments.reverse %>
+        </div>
+    </div>
+    <div class="contents_footer"></div>
+
+</div>
+<%= render :file => 'shared/recent_posts.rhtml', :locals => { :recent_posts => @recent_posts } %>

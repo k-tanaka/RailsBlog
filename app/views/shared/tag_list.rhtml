@@ -1,0 +1,8 @@
+<aside class="g1 widget">
+    <h6>タグ一覧</h6>
+    <p class="tags">
+<% @rand_tags.each do |tag| %>
+        <span class="tag"><%= link_to tag.name, :controller => 'frontend', :action => 'index', :tag => tag.id %></span>
+<% end %>
+    </p>
+</aside>

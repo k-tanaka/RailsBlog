@@ -1,0 +1,4 @@
+<div class="comment">
+    <p class="comment_header"><%= comment.commenter %> <%= comment.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+    <%= simple_format(comment.body) %>
+</div>

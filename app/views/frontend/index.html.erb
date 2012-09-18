@@ -1,0 +1,24 @@
+<div class="g2">
+<%= paginate @posts %>
+</div>
+<div class="g2">
+    <div id="articles_header"></div>
+    <div id="articles">
+<% @posts.each do |post| %>
+    <h5 class="article_title"><%= link_to post.title, :controller => 'frontend', :action => 'show', :id => post.id %></h5>
+    <div class="article_summary">
+        <%= truncate(post.content, :length => 100) %>
+        <p class="read_more"><%= link_to '続きを読む', :controller => 'frontend', :action => 'show', :id => post.id  %></p>
+    </div>
+    <p class="article_footer">
+        <span class="author"><%= post.name %></span> 
+<% post.tags.each do |tag| %>
+        <span class="tag"><%= link_to tag.name, :controller => 'frontend', :action => 'index', :tag => tag.id %></span>
+<% end %>
+        <span class="article_date"><%= post.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+    </p>
+<% end %>
+    </div>
+    <div id="articles_footer"> </div>
+    <%= paginate @posts %>
+</div>

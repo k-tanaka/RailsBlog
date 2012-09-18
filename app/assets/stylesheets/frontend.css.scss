@@ -1,0 +1,191 @@
+// Place all the styles related to the frontend controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* -- article -- */
+#article_header,
+#articles_header,
+.contents_header {
+    margin-top: 0.8em;
+    margin-bottom: 0;
+    border: 1px solid #e6e6e6;
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    background-color: #e6e6e6;
+    color: #e6e6e6;
+}
+#article_header:after,
+#articles_header:after,
+.contents_header:after {
+content: '.';
+}
+#article_footer,
+#articles_footer,
+.contents_footer {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    border: 1px solid #e6e6e6;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+    background-color: #e6e6e6;
+    color: #e6e6e6;
+}
+#article_footer:after,
+#articles_footer:after,
+.contents_footer:after {
+content: '.';
+}
+
+#article,
+#articles,
+.contents {
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    background-color: #fff;
+    padding: 8px 12px;
+}
+
+#articles .article_footer {
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #ccc;
+}
+#articles .article_footer:last-child {
+    border: none;
+}
+
+#articles .article_footer .tag {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+#article .tags {
+    text-align: right;
+}
+#article .tag {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+#article .tag:first-child {
+    margin-left: 1em;
+}
+
+.article_title {
+    padding-bottom: 4px;
+    border-bottom: 2px solid #C47529;
+}
+.article_summary {
+}
+.article_summary .read_more {
+    margin-top: 18px;
+    margin-bottom: 4px;
+    text-align: right;
+    font-size: 75%;
+}
+.article_footer {
+    margin-top: 16px;
+    text-align: right;
+    font-size: 75%;
+    color: #666;
+}
+.article_footer .author,
+.article_footer .article_date {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* -- recent posts -- */
+.widget {
+    border: 1px solid #e6e6e6;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    margin-top: 0.8em;
+    background-color: #e6e6e6;
+    padding-top: 8px;
+    padding-bottom: 16px;
+}
+.widget ul,
+.widget div,
+.widget p {
+    background-color: #fff;
+}
+.widget h6 {
+    margin-bottom: 4px;
+    padding: 0 8px 8px;
+    font-size: 85%;
+    font-weight: bold;
+}
+.widget ul {
+    margin-bottom: 0;
+}
+.widget ul li {
+    font-size: 75%;
+    padding-left: 12px;
+    list-style-type: none;
+}
+.widget p {
+    font-size: 75%;
+    margin-bottom: 0;
+}
+.widget p .tag {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* -- pagination -- */
+.pagination {
+    margin: 0.2em;
+    text-align: center;
+}
+.pagination span {
+padding: 0 0.4em;
+}
+
+/* -- comment -- */
+#comments h6 {
+    margin-bottom: 0.2em;
+}
+
+.comment {
+    margin-left: 16px;
+    margin-bottom: 0.4em;
+    font-size: 80%;
+    border-bottom: 1px dashed #999;
+    padding-bottom: 0.2em;
+}
+.comment:last-child {
+    border-bottom: none;
+}
+.comment p {
+}
+
+.comment_header {
+    margin-bottom: 0.4em;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #999;
+    width: 40%;
+}
+
+#new_comment {
+    margin-top: 1em;
+    margin-left: 16px;
+    margin-bottom: 1em;
+    font-size: 80%;
+}
+
+.comment_form_name {
+    width: 16em;
+}
+
+.comment_form_body {
+    width: 60%;
+}
+
+.form_submit {
+    padding: 4px 16px;
+    margin-left: 32px;
+    vertical-align: text-bottom;
+}
+

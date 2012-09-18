@@ -1,0 +1,4 @@
+var dom = $('<%= escape_javascript(render :partial => 'tag', :object => @tag) %>').hide()
+$('.tablesorter tbody').prepend(dom);
+$('.tablesorter tbody tr').first().fadeIn(2000);
+$('#new_tag')[0].reset();

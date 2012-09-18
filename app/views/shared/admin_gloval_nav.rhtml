@@ -1,0 +1,10 @@
+<nav>
+    <ul class="nav">
+        <li><%= link_to '記事を作成', new_post_path %></li>
+        <li><%= link_to '記事一覧', posts_path %></li>
+<% if @post && @post.id %>
+        <li><%= link_to '記事を表示', { :controller => 'frontend', :action => 'show', :id => @post.id }, { :target => '_blank' } %></li>
+<% end %>
+        <li><%= link_to 'タグ一覧', tags_path %></li>
+    </ul>
+</nav>

@@ -1,0 +1,6 @@
+<tr id="<%= dom_id(comment) %>">
+    <td class="commenter"><%= comment.commenter %></td>
+    <td class="comment"><%= simple_format(comment.body) %></td>
+    <td class="datetime"><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    <td class="operation"><%= link_to '削除', comment, method: :delete, data: { confirm: '正気ですか！？' }, :remote => true %></td>
+</tr>

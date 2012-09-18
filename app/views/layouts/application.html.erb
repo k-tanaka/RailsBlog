@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ruby on Rails 簡易ブログ</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="k-tanaka@netcombb.co.jp" />
+    <meta name="keywords" content="" />
+
+    <!-- Optimized mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= stylesheet_link_tag    params[:controller], :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag params[:controller] %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+    <header>
+        <div class="g1 blanding">
+            <h1>Blog @ RoR<% if @is_admin %><br />管理画面<% end %></h1>
+        </div>
+        <nav class="g2">
+            <ul class="nav">
+                <li><%= link_to 'HOME', :root %></a></li>
+                <li><%= link_to 'バックエンド', :admin_root, { :target => '_blank' } %></a></li>
+            </ul>
+        </nav>
+        <div class="g2">
+            <h5>Ruby on Rails でブログを作ってみた</h5>
+            デザインは最近流行りのHTML5 + CSS (+ Javascript)でレスポンシブWebデザインを目指してみる<br />
+            デザインの元は<%= link_to 'ココ', { }, { :href => 'http://fluidbaselinegrid.com/', :title => 'Fluid Baseline Grid', :target => '_blank' } %>
+        </div>
+    </header>
+    <div class="cf"></div><!-- clear fix -->
+    <div id="content">
+<%= yield %>
+<%= render :file => 'shared/recent_posts.rhtml', :locals => { :recent_posts => @recent_posts } %>
+<%= render :file => 'shared/tag_list.rhtml', :locals => { :tags => @tags } %>
+    </div>
+</body>
+</html>
