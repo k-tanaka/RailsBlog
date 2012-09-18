@@ -34,11 +34,9 @@ class TagsController < ApplicationController
 
         respond_to do |format|
             if @tag.update_attributes(params[:tag])
-                format.html { redirect_to tags_url }
-                format.json { render json: @tag, status: :created, location: @tag }
+                format.js
             else
-                format.html { render action: 'edit' }
-                format.json { render json: @tag.errors, status: :unprocessable_entry }
+                format.js { render action: 'edit' }
             end
         end
     end

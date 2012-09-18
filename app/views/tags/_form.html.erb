@@ -1,5 +1,6 @@
 <%= form_for(@tag, :remote => true) do |f| %>
-<%= f.text_field :name, :class => 'admin_form_name' %>
-
-<%= link_to '保存', { :controller => 'tags', :action => 'update', :id => @tag.id }, :class => 'icn_save' %>
+<%= f.text_field :name, :class => 'admin_form_name', :size => 10 %>
+<br />
+<%= f.submit '保存', :class => 'icn_save', :remote => true %>
+<%= link_to 'キャンセル', @tag, :method => :put, :class => 'icn_cancel', :remote => true %>
 <% end %>

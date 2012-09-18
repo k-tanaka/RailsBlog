@@ -24,6 +24,28 @@ background: url(./icn_trash.png) no-repeat center left;
 .tablesorter .actions .icn_jump {
 background: url(./icn_jump_back.png) no-repeat center left;
 }
+.tablesorter input[type="submit"].icn_save {
+display: inline-block;
+margin-top: 4px;
+margin-right: 8px;
+padding-left: 24px;
+line-height: 20px;
+background: url(./diskette.gif) no-repeat center left;
+border: none;
+font-weight: normal;
+color: #77BACE;
+text-align: left;
+}
+.tablesorter input[type="submit"].icn_save:hover {
+text-decoration: underline;
+}
+.tablesorter .icn_cancel {
+padding-left: 20px;
+background: url(./icn_logout.png) no-repeat center left;
+}
+.tablesorter input[type="text"] {
+padding: 2px;
+}
 
 textarea {
     padding: 8px;
